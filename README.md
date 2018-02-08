@@ -1,5 +1,7 @@
-# Fully Batched PyTorch Seq2Seq Example
+Batched Seq2Seq Example
 Based on the [`seq2seq-translation-batched.ipynb`](https://github.com/spro/practical-pytorch/blob/master/seq2seq-translation/seq2seq-translation-batched.ipynb) from *practical-pytorch*, but more extra features.
+
+This example runs grammatical error correction task where the source sequence is a grammatically erroneuous English sentence and the target sequence is an grammatically correct English sentence. The corpus and evaluation script can be download at: https://github.com/keisks/jfleg.
 
 ### Extra features
 - Cleaner codebase
@@ -14,6 +16,7 @@ Based on the [`seq2seq-translation-batched.ipynb`](https://github.com/spro/pract
 - Tie embeddings (decoder's input embedding and decoder's output embedding)
 - Tensorboard visualization
 - Load and save checkpoint
+- Replace unknown words by selecting the source token with the highest attention score. (Translation)
 
 ### Cons
 Comparing to the state-of-the-art seq2seq library, OpenNMT-py, there are some stuffs that aren't optimized in this codebase:
