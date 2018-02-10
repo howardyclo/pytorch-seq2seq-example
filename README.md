@@ -20,9 +20,9 @@ This example runs grammatical error correction task where the source sequence is
 
 ### Cons
 Comparing to the state-of-the-art seq2seq library, OpenNMT-py, there are some stuffs that aren't optimized in this codebase:
-- Use CuDNN when possible (always on encoder, on decoder when input_feed 0)
+- Use CuDNN when possible (always on encoder, on decoder when `input_feed`=0)
 - Always avoid indexing / loops and use torch primitives.
-- When possible, batch softmax operations across time. ( this is the second complicated part of the code)
+- When possible, batch softmax operations across time. (this is the second complicated part of the code)
 - Batch inference and beam search for translation (this is the most complicated part of the code)
 
 ### How to speed up RNN training?
@@ -32,6 +32,7 @@ Several ways to speed up RNN training:
 - Dynamic padding
 - Bucketing
 - Truncated BPTT 
+
 See ["Sequence Models and the RNN API (TensorFlow Dev Summit 2017)"](https://www.youtube.com/watch?v=RIR_-Xlbp7s&t=490s) for understanding those techniques.
 
 You can use torchtext or OpenNMT's data iterator for speeding up the training. It can be7x faster! (ex: 7 hour for an epoch -> 1 hour!)
